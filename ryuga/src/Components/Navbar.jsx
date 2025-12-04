@@ -11,7 +11,7 @@ const Navbar = () => {
     { href: '/', label: 'Home' },
     { href: '/who-we-are', label: 'Who We Are' },
     { href: '#services', label: 'Services' },
-    { href: '#contact', label: 'Contact' },
+    { href: '/contact', label: 'Contact' },
    ];
 
   useEffect(() => {
@@ -162,14 +162,14 @@ const Navbar = () => {
             >
               Register Now
             </Link>
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="block px-3 py-2 mt-2 border-2 border-blue-600 text-blue-600 text-center rounded-md font-medium hover:bg-blue-600 hover:text-white transition-colors"
               style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
               onClick={() => setMenuOpen(false)}
             >
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       )}

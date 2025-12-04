@@ -91,19 +91,22 @@ function Homepage() {
             </div>
 
             {/* Image Side */}
-            <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl" style={{ backgroundColor: '#EAF6FB' }}>
-                <div className="aspect-[4/3] flex items-center justify-center" style={{ background: 'linear-gradient(135deg, #EAF6FB, #E3F2F9)' }}>
-                  <div className="text-center space-y-3">
-                    <div className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto" style={{ backgroundColor: '#AEE1F9' }}>
-                      <div className="w-8 h-8 rounded-lg" style={{ backgroundColor: '#5BA7D1' }}></div>
-                    </div>
-                    <p className="text-sm font-medium" style={{ color: '#34495E' }}>Professional Care Image</p>
-                  </div>
+            <div className="relative flex justify-center">
+              <div className="relative rounded-full overflow-hidden shadow-xl group transition-all duration-500 hover:shadow-2xl w-80 h-80">
+                <div className="aspect-square relative">
+                  <img 
+                    src="/src/Assets/images/chooses.jpeg" 
+                    alt="RYUGA Professional Nursing Training Environment" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-full"
+                  />
+                  {/* Professional overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-transparent to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full"></div>
+                  
+                  
+                
                 </div>
               </div>
-              <div className="absolute -z-10 top-4 left-4 w-full h-full rounded-2xl" style={{ backgroundColor: '#A8DFC7' }}></div>
-            </div>
+              </div>
           </div>
         </div>
       </section>
@@ -116,53 +119,57 @@ function Homepage() {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Practical Training Card */}
-            <div className="group text-center p-8 bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-500 border transform hover:-translate-y-2" style={{ borderColor: '#A8DFC7' }} onMouseEnter={(e) => e.target.style.borderColor = '#5BA7D1'} onMouseLeave={(e) => e.target.style.borderColor = '#A8DFC7'}>
-              <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #AEE1F9, #A8DFC7)' }}>
-                <span className="text-4xl" style={{ color: '#5BA7D1' }}>🎯</span>
+            <div className="group text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 border transform hover:-translate-y-2 opacity-0 translate-y-8 animate-fade-in-up" style={{ borderColor: '#E5F3FF', animationDelay: '0.2s', animationFillMode: 'forwards' }} onMouseEnter={(e) => { e.target.style.borderColor = '#5BA7D1'; }} onMouseLeave={(e) => { e.target.style.borderColor = '#E5F3FF'; }}>
+              
+              <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 group-hover:scale-105 transition-all duration-300 shadow-md">
+                <img src="/src/Assets/images/chooses.jpeg" alt="Practical Training" className="w-full h-full object-cover" />
               </div>
-              <h3 className="text-2xl font-bold mb-6 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
+              <h3 className="text-xl font-bold mb-4 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
                 Practical Training
               </h3>
-              <p className="leading-relaxed text-lg" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: '#34495E' }}>
+              <p className="leading-relaxed text-sm" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: '#34495E' }}>
                 Hands-on experience with real-world caregiving scenarios to build confidence and expertise
               </p>
             </div>
 
             {/* Compassionate Care Card */}
-            <div className="group text-center p-8 bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-500 border transform hover:-translate-y-2" style={{ borderColor: '#A8DFC7' }} onMouseEnter={(e) => e.target.style.borderColor = '#5BA7D1'} onMouseLeave={(e) => e.target.style.borderColor = '#A8DFC7'}>
-              <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #AEE1F9, #A8DFC7)' }}>
-                <span className="text-4xl" style={{ color: '#5BA7D1' }}>💖</span>
+            <div className="group text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 border transform hover:-translate-y-2 opacity-0 translate-y-8 animate-fade-in-up" style={{ borderColor: '#FFF0F5', animationDelay: '0.6s', animationFillMode: 'forwards' }} onMouseEnter={(e) => { e.target.style.borderColor = '#EC4899'; }} onMouseLeave={(e) => { e.target.style.borderColor = '#FFF0F5'; }}>
+              
+              <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 group-hover:scale-105 transition-all duration-300 shadow-md">
+                <img src="/src/Assets/images/chooses.jpeg" alt="Compassionate Care" className="w-full h-full object-cover" />
               </div>
-              <h3 className="text-2xl font-bold mb-6 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
+              <h3 className="text-xl font-bold mb-4 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
                 Compassionate Care
               </h3>
-              <p className="leading-relaxed text-lg" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: '#34495E' }}>
+              <p className="leading-relaxed text-sm" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: '#34495E' }}>
                 Teaching empathy and emotional intelligence as core foundations of quality caregiving
               </p>
             </div>
 
             {/* Professional Excellence Card */}
-            <div className="group text-center p-8 bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-500 border transform hover:-translate-y-2" style={{ borderColor: '#A8DFC7' }} onMouseEnter={(e) => e.target.style.borderColor = '#5BA7D1'} onMouseLeave={(e) => e.target.style.borderColor = '#A8DFC7'}>
-              <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #AEE1F9, #A8DFC7)' }}>
-                <span className="text-4xl" style={{ color: '#5BA7D1' }}>🏆</span>
+            <div className="group text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 border transform hover:-translate-y-2 opacity-0 translate-y-8 animate-fade-in-up" style={{ borderColor: '#FFFBEB', animationDelay: '1.0s', animationFillMode: 'forwards' }} onMouseEnter={(e) => { e.target.style.borderColor = '#F59E0B'; }} onMouseLeave={(e) => { e.target.style.borderColor = '#FFFBEB'; }}>
+              
+              <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 group-hover:scale-105 transition-all duration-300 shadow-md">
+                <img src="/src/Assets/images/chooses.jpeg" alt="Professional Excellence" className="w-full h-full object-cover" />
               </div>
-              <h3 className="text-2xl font-bold mb-6 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
+              <h3 className="text-xl font-bold mb-4 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
                 Professional Excellence
               </h3>
-              <p className="leading-relaxed text-lg" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: '#34495E' }}>
+              <p className="leading-relaxed text-sm" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: '#34495E' }}>
                 Maintaining highest standards of care with certified training and continuous development
               </p>
             </div>
 
             {/* Community Support Card */}
-            <div className="group text-center p-8 bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-500 border transform hover:-translate-y-2" style={{ borderColor: '#A8DFC7' }} onMouseEnter={(e) => e.target.style.borderColor = '#5BA7D1'} onMouseLeave={(e) => e.target.style.borderColor = '#A8DFC7'}>
-              <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300" style={{ background: 'linear-gradient(135deg, #AEE1F9, #A8DFC7)' }}>
-                <span className="text-4xl" style={{ color: '#5BA7D1' }}>🤝</span>
+            <div className="group text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 border transform hover:-translate-y-2 opacity-0 translate-y-8 animate-fade-in-up" style={{ borderColor: '#F0FDF4', animationDelay: '1.4s', animationFillMode: 'forwards' }} onMouseEnter={(e) => { e.target.style.borderColor = '#22C55E'; }} onMouseLeave={(e) => { e.target.style.borderColor = '#F0FDF4'; }}>
+              
+              <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 group-hover:scale-105 transition-all duration-300 shadow-md">
+                <img src="/src/Assets/images/chooses.jpeg" alt="Community Support" className="w-full h-full object-cover" />
               </div>
-              <h3 className="text-2xl font-bold mb-6 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
+              <h3 className="text-xl font-bold mb-4 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
                 Community Support
               </h3>
-              <p className="leading-relaxed text-lg" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: '#34495E' }}>
+              <p className="leading-relaxed text-sm" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: '#34495E' }}>
                 Building a supportive community of caregivers who learn and grow together
               </p>
             </div>
@@ -172,7 +179,6 @@ function Homepage() {
 
       {/* RYUGA At a Glance Section */}
       <section className="py-16 relative overflow-hidden" style={{ backgroundColor: '#E3F2F9' }}>
-
 
         <div className="max-w-7xl mx-auto px-6 relative">
           {/* Section Header */}
@@ -188,46 +194,50 @@ function Homepage() {
           {/* Statistics Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Student Satisfaction */}
-            <div className="rounded-xl p-6 text-center border transition-colors duration-300" style={{ backgroundColor: '#5BA7D1', borderColor: '#5BA7D1' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#4A96C0'} onMouseLeave={(e) => e.target.style.backgroundColor = '#5BA7D1'}>
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: '#AEE1F9' }}>
-                <div className="w-6 h-6 rounded flex items-center justify-center" style={{ backgroundColor: '#5BA7D1' }}>
-                  <div className="w-3 h-3 rounded" style={{ backgroundColor: '#AEE1F9' }}></div>
-                </div>
+            <div className="group rounded-xl p-8 text-center border transition-all duration-500 transform hover:scale-105 hover:shadow-xl" style={{ backgroundColor: '#5BA7D1', borderColor: '#5BA7D1' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#4A96C0'} onMouseLeave={(e) => e.target.style.backgroundColor = '#5BA7D1'}>
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:rotate-12 transition-transform duration-500" style={{ backgroundColor: '#AEE1F9' }}>
+                <div className="text-2xl animate-pulse">📊</div>
               </div>
-              <h3 className="text-2xl font-bold mb-1" style={{ fontFamily: 'Abhaya Libre, serif', color: '#AEE1F9' }}>98%</h3>
+              <div className="relative overflow-hidden">
+                <h3 className="text-4xl font-bold mb-2 animate-bounce" style={{ fontFamily: 'Abhaya Libre, serif', color: '#AEE1F9', animationDuration: '2s' }}>98%</h3>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </div>
               <p className="text-sm font-medium" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: 'white' }}>Student Satisfaction</p>
             </div>
 
             {/* Years Experience */}
-            <div className="rounded-xl p-6 text-center border transition-colors duration-300" style={{ backgroundColor: '#5BA7D1', borderColor: '#5BA7D1' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#4A96C0'} onMouseLeave={(e) => e.target.style.backgroundColor = '#5BA7D1'}>
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: '#AEE1F9' }}>
-                <div className="w-6 h-6 rounded flex items-center justify-center" style={{ backgroundColor: '#5BA7D1' }}>
-                  <div className="w-3 h-3 rounded" style={{ backgroundColor: '#AEE1F9' }}></div>
-                </div>
+            <div className="group rounded-xl p-8 text-center border transition-all duration-500 transform hover:scale-105 hover:shadow-xl" style={{ backgroundColor: '#5BA7D1', borderColor: '#5BA7D1' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#4A96C0'} onMouseLeave={(e) => e.target.style.backgroundColor = '#5BA7D1'}>
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:-rotate-12 transition-transform duration-500" style={{ backgroundColor: '#AEE1F9' }}>
+                <div className="text-2xl animate-spin" style={{ animationDuration: '3s' }}>⏰</div>
               </div>
-              <h3 className="text-2xl font-bold mb-1" style={{ fontFamily: 'Abhaya Libre, serif', color: '#AEE1F9' }}>3+</h3>
+              <div className="relative overflow-hidden">
+                <h3 className="text-4xl font-bold mb-2 animate-pulse" style={{ fontFamily: 'Abhaya Libre, serif', color: '#AEE1F9', animationDuration: '1.5s' }}>3+</h3>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </div>
               <p className="text-sm font-medium" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: 'white' }}>Years Experience</p>
             </div>
 
             {/* Training Success */}
-            <div className="rounded-xl p-6 text-center border transition-colors duration-300" style={{ backgroundColor: '#5BA7D1', borderColor: '#5BA7D1' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#4A96C0'} onMouseLeave={(e) => e.target.style.backgroundColor = '#5BA7D1'}>
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: '#AEE1F9' }}>
-                <div className="w-6 h-6 rounded flex items-center justify-center" style={{ backgroundColor: '#5BA7D1' }}>
-                  <div className="w-3 h-3 rounded" style={{ backgroundColor: '#AEE1F9' }}></div>
-                </div>
+            <div className="group rounded-xl p-8 text-center border transition-all duration-500 transform hover:scale-105 hover:shadow-xl" style={{ backgroundColor: '#5BA7D1', borderColor: '#5BA7D1' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#4A96C0'} onMouseLeave={(e) => e.target.style.backgroundColor = '#5BA7D1'}>
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-500" style={{ backgroundColor: '#AEE1F9' }}>
+                <div className="text-2xl animate-bounce">✅</div>
               </div>
-              <h3 className="text-2xl font-bold mb-1" style={{ fontFamily: 'Abhaya Libre, serif', color: '#AEE1F9' }}>100%</h3>
+              <div className="relative overflow-hidden">
+                <h3 className="text-4xl font-bold mb-2 animate-pulse" style={{ fontFamily: 'Abhaya Libre, serif', color: '#AEE1F9', animationDuration: '1.8s' }}>100%</h3>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </div>
               <p className="text-sm font-medium" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: 'white' }}>Training Success</p>
             </div>
 
             {/* Certification Rate */}
-            <div className="rounded-xl p-6 text-center border transition-colors duration-300" style={{ backgroundColor: '#5BA7D1', borderColor: '#5BA7D1' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#4A96C0'} onMouseLeave={(e) => e.target.style.backgroundColor = '#5BA7D1'}>
-              <div className="w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: '#AEE1F9' }}>
-                <div className="w-6 h-6 rounded flex items-center justify-center" style={{ backgroundColor: '#5BA7D1' }}>
-                  <div className="w-3 h-3 rounded" style={{ backgroundColor: '#AEE1F9' }}></div>
-                </div>
+            <div className="group rounded-xl p-8 text-center border transition-all duration-500 transform hover:scale-105 hover:shadow-xl" style={{ backgroundColor: '#5BA7D1', borderColor: '#5BA7D1' }} onMouseEnter={(e) => e.target.style.backgroundColor = '#4A96C0'} onMouseLeave={(e) => e.target.style.backgroundColor = '#5BA7D1'}>
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:rotate-180 transition-transform duration-700" style={{ backgroundColor: '#AEE1F9' }}>
+                <div className="text-2xl animate-ping" style={{ animationDuration: '2.5s' }}>🏆</div>
               </div>
-              <h3 className="text-2xl font-bold mb-1" style={{ fontFamily: 'Abhaya Libre, serif', color: '#AEE1F9' }}>98%</h3>
+              <div className="relative overflow-hidden">
+                <h3 className="text-4xl font-bold mb-2 animate-pulse" style={{ fontFamily: 'Abhaya Libre, serif', color: '#AEE1F9', animationDuration: '2.2s' }}>98%</h3>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+              </div>
               <p className="text-sm font-medium" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: 'white' }}>Certification Rate</p>
             </div>
           </div>
@@ -235,143 +245,119 @@ function Homepage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-32 relative overflow-hidden" style={{ 
-        backgroundColor: '#FFFFFF',
-        backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23EAF6FB" fill-opacity="0.3" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'bottom'
-      }}>
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-32 relative overflow-hidden">
+        {/* Background Video */}
+        <video 
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source src="/src/Assets/exam.mp4" type="video/mp4" />
+        </video>
+        
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <div className="max-w-7xl mx-auto px-6 relative z-20">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4" style={{ fontFamily: 'Abhaya Libre, serif', color: 'white' }}>
               Why Choose <span style={{ color: '#5BA7D1' }}>RYUGA?</span>
             </h2>
-            <p className="text-lg max-w-2xl mx-auto" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: '#34495E' }}>
+            <p className="text-lg max-w-2xl mx-auto" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: 'rgba(255, 255, 255, 0.9)' }}>
               Your trusted partner for professional nursing and caregiving education
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Image Side */}
-            <div className="relative flex justify-center">
-              {/* Circular Background Container */}
-              <div className="relative">
-                {/* Main circular image with background */}
-                <div className="w-96 h-96 rounded-full overflow-hidden shadow-2xl border-8 border-white relative">
-                  <img 
-                    src="/src/Assets/images/chooses.jpeg" 
-                    alt="RYUGA Nursing Training" 
-                    className="w-full h-full object-cover"
-                  />
-                  {/* Overlay content */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-transparent via-black/20 to-black/40">
-                    <div className="text-center text-white">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: 'rgba(255,255,255,0.9)' }}>
-                        <svg className="w-8 h-8" style={{ color: '#5BA7D1' }} fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <p className="text-lg font-bold" style={{ color: '#FFFFFF', textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Quality Education</p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Decorative floating elements */}
-                <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full shadow-lg animate-pulse" style={{ backgroundColor: '#A8DFC7' }}></div>
-                <div className="absolute -bottom-6 -left-6 w-16 h-16 rounded-full shadow-lg animate-pulse" style={{ backgroundColor: '#5BA7D1', animationDelay: '1s' }}></div>
-                <div className="absolute top-1/2 -left-8 w-8 h-8 rounded-full shadow-lg animate-pulse" style={{ backgroundColor: '#EAF6FB', animationDelay: '2s' }}></div>
-                <div className="absolute top-8 left-1/2 w-6 h-6 rounded-full shadow-lg animate-pulse" style={{ backgroundColor: '#A8DFC7', animationDelay: '0.5s' }}></div>
-              </div>
-            </div>
-
-            {/* Content Side */}
+          {/* Content Side */}
+          <div className="max-w-4xl mx-auto">
             <div className="space-y-6">
               {/* Point 1 */}
-              <div className="flex items-start gap-4 p-4 rounded-xl transition-all duration-300 hover:shadow-md" style={{ backgroundColor: 'rgba(91, 167, 209, 0.05)' }}>
-                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white" style={{ backgroundColor: '#5BA7D1' }}>
+              <div className="flex items-start gap-6 p-6 rounded-2xl transition-all duration-300 hover:shadow-lg opacity-0 translate-y-8 animate-fade-in-up" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+                <div className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-xl" style={{ backgroundColor: '#60A5FA' }}>
                   1
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold mb-2" style={{ color: '#2C3E50' }}>Government-Recognized Training</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: '#34495E' }}>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: 'white' }}>Government-Recognized Training</h3>
+                  <p className="text-base leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
                     Our programs follow certified caregiving and nursing standards accepted locally and internationally.
                   </p>
                 </div>
               </div>
 
               {/* Point 2 */}
-              <div className="flex items-start gap-4 p-4 rounded-xl transition-all duration-300 hover:shadow-md" style={{ backgroundColor: 'rgba(168, 223, 199, 0.05)' }}>
-                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white" style={{ backgroundColor: '#A8DFC7' }}>
+              <div className="flex items-start gap-6 p-6 rounded-2xl transition-all duration-300 hover:shadow-lg opacity-0 translate-y-8 animate-fade-in-up" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', animationDelay: '0.6s', animationFillMode: 'forwards' }}>
+                <div className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-xl" style={{ backgroundColor: '#60A5FA' }}>
                   2
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold mb-2" style={{ color: '#2C3E50' }}>Experienced & Qualified Instructors</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: '#34495E' }}>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: 'white' }}>Experienced & Qualified Instructors</h3>
+                  <p className="text-base leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
                     You'll learn from trained nurses and caregiving professionals with real-world experience.
                   </p>
                 </div>
               </div>
 
               {/* Point 3 */}
-              <div className="flex items-start gap-4 p-4 rounded-xl transition-all duration-300 hover:shadow-md" style={{ backgroundColor: 'rgba(91, 167, 209, 0.05)' }}>
-                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white" style={{ backgroundColor: '#5BA7D1' }}>
+              <div className="flex items-start gap-6 p-6 rounded-2xl transition-all duration-300 hover:shadow-lg opacity-0 translate-y-8 animate-fade-in-up" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', animationDelay: '0.9s', animationFillMode: 'forwards' }}>
+                <div className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-xl" style={{ backgroundColor: '#60A5FA' }}>
                   3
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold mb-2" style={{ color: '#2C3E50' }}>Practical, Hands-On Learning</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: '#34495E' }}>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: 'white' }}>Practical, Hands-On Learning</h3>
+                  <p className="text-base leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
                     We provide real caregiving practice sessions, simulations, and skill-based training.
                   </p>
                 </div>
               </div>
 
               {/* Point 4 */}
-              <div className="flex items-start gap-4 p-4 rounded-xl transition-all duration-300 hover:shadow-md" style={{ backgroundColor: 'rgba(168, 223, 199, 0.05)' }}>
-                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white" style={{ backgroundColor: '#A8DFC7' }}>
+              <div className="flex items-start gap-6 p-6 rounded-2xl transition-all duration-300 hover:shadow-lg opacity-0 translate-y-8 animate-fade-in-up" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', animationDelay: '1.2s', animationFillMode: 'forwards' }}>
+                <div className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-xl" style={{ backgroundColor: '#60A5FA' }}>
                   4
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold mb-2" style={{ color: '#2C3E50' }}>Supportive & Comfort-Focused Learning</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: '#34495E' }}>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: 'white' }}>Supportive & Comfort-Focused Learning</h3>
+                  <p className="text-base leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
                     A calm learning environment designed to help students learn with confidence and ease.
                   </p>
                 </div>
               </div>
 
               {/* Point 5 */}
-              <div className="flex items-start gap-4 p-4 rounded-xl transition-all duration-300 hover:shadow-md" style={{ backgroundColor: 'rgba(91, 167, 209, 0.05)' }}>
-                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white" style={{ backgroundColor: '#5BA7D1' }}>
+              <div className="flex items-start gap-6 p-6 rounded-2xl transition-all duration-300 hover:shadow-lg opacity-0 translate-y-8 animate-fade-in-up" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', animationDelay: '1.5s', animationFillMode: 'forwards' }}>
+                <div className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-xl" style={{ backgroundColor: '#60A5FA' }}>
                   5
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold mb-2" style={{ color: '#2C3E50' }}>Job-Ready Training for Local & Overseas Careers</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: '#34495E' }}>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: 'white' }}>Job-Ready Training for Local & Overseas Careers</h3>
+                  <p className="text-base leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
                     We prepare you for caregiving roles in Sri Lanka, Japan, and other international destinations.
                   </p>
                 </div>
               </div>
 
               {/* Point 6 */}
-              <div className="flex items-start gap-4 p-4 rounded-xl transition-all duration-300 hover:shadow-md" style={{ backgroundColor: 'rgba(168, 223, 199, 0.05)' }}>
-                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white" style={{ backgroundColor: '#A8DFC7' }}>
+              <div className="flex items-start gap-6 p-6 rounded-2xl transition-all duration-300 hover:shadow-lg opacity-0 translate-y-8 animate-fade-in-up" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', animationDelay: '1.8s', animationFillMode: 'forwards' }}>
+                <div className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-xl" style={{ backgroundColor: '#60A5FA' }}>
                   6
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold mb-2" style={{ color: '#2C3E50' }}>Easy Registration & Student Guidance</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: '#34495E' }}>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: 'white' }}>Easy Registration & Student Guidance</h3>
+                  <p className="text-base leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
                     No complicated steps—simple registration, friendly support, and guidance throughout your studies.
                   </p>
                 </div>
               </div>
 
               {/* Point 7 */}
-              <div className="flex items-start gap-4 p-4 rounded-xl transition-all duration-300 hover:shadow-md" style={{ backgroundColor: 'rgba(91, 167, 209, 0.05)' }}>
-                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-white" style={{ backgroundColor: '#5BA7D1' }}>
+              <div className="flex items-start gap-6 p-6 rounded-2xl transition-all duration-300 hover:shadow-lg opacity-0 translate-y-8 animate-fade-in-up" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', animationDelay: '2.1s', animationFillMode: 'forwards' }}>
+                <div className="shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-xl" style={{ backgroundColor: '#60A5FA' }}>
                   7
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold mb-2" style={{ color: '#2C3E50' }}>Affordable Fees & Installment Options</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: '#34495E' }}>
+                  <h3 className="text-xl font-bold mb-3" style={{ color: 'white' }}>Affordable Fees & Installment Options</h3>
+                  <p className="text-base leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
                     We offer flexible fee structures suited for all students.
                   </p>
                 </div>

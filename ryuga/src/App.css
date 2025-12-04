@@ -163,3 +163,59 @@
 .slide-indicator:nth-child(3) {
   animation: indicatorPulse3 24s infinite;
 }
+
+/* Professional Image Float Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-5px) rotate(-2deg);
+  }
+}
+
+.animate-float {
+  animation: float ease-in-out infinite;
+}
+
+/* Enhanced Professional Image Styles */
+.group:hover .shadow-3xl {
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 20px 25px -5px rgba(91, 167, 209, 0.1),
+    0 10px 10px -5px rgba(168, 223, 199, 0.1);
+}
+
+/* Backdrop blur support fallback */
+@supports not (backdrop-filter: blur(4px)) {
+  .backdrop-blur-sm {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Custom gradient animations for professional look */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.professional-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(91, 167, 209, 0.1) 0%,
+    rgba(168, 223, 199, 0.2) 50%,
+    rgba(91, 167, 209, 0.1) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}

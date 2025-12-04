@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './Components/Navbar'
 import Homepage from './Pages/Homepage'
 import WhoWeAre from './Pages/WhoWeAre'
+import Contact from './Pages/Contact'
 import Register from './Pages/Authentication/Register'
 import Footer from './Components/Footer'
 
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/who-we-are" element={<WhoWeAre />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<Register />} />
         </Routes>
         <Footer />
