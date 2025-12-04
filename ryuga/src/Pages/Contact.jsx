@@ -12,7 +12,7 @@ function Contact() {
           muted 
           playsInline
         >
-          <source src="/src/Assets/exam.mp4" type="video/mp4" />
+          <source src="/Assets/exam.mp4" type="video/mp4" />
         </video>
         
         {/* Dark overlay */}

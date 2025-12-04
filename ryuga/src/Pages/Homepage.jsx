@@ -12,7 +12,7 @@ function Homepage() {
           muted 
           playsInline
         >
-          <source src="/src/Assets/Vedio/course.mp4" type="video/mp4" />
+          <source src="/Assets/Vedio/course.mp4" type="video/mp4" />
         </video>
         
         {/* Overlay for better text readability */}
@@ -95,7 +95,7 @@ function Homepage() {
               <div className="relative rounded-full overflow-hidden shadow-xl group transition-all duration-500 hover:shadow-2xl w-80 h-80">
                 <div className="aspect-square relative">
                   <img 
-                    src="/src/Assets/images/chooses.jpeg" 
+                    src="/Assets/images/chooses.jpeg" 
                     alt="RYUGA Professional Nursing Training Environment" 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 rounded-full"
                   />
@@ -122,7 +122,7 @@ function Homepage() {
             <div className="group text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 border transform hover:-translate-y-2 opacity-0 translate-y-8 animate-fade-in-up" style={{ borderColor: '#E5F3FF', animationDelay: '0.2s', animationFillMode: 'forwards' }} onMouseEnter={(e) => { e.target.style.borderColor = '#5BA7D1'; }} onMouseLeave={(e) => { e.target.style.borderColor = '#E5F3FF'; }}>
               
               <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 group-hover:scale-105 transition-all duration-300 shadow-md">
-                <img src="/src/Assets/images/chooses.jpeg" alt="Practical Training" className="w-full h-full object-cover" />
+                <img src="/Assets/images/chooses.jpeg" alt="Practical Training" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-xl font-bold mb-4 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
                 Practical Training
@@ -136,7 +136,7 @@ function Homepage() {
             <div className="group text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 border transform hover:-translate-y-2 opacity-0 translate-y-8 animate-fade-in-up" style={{ borderColor: '#FFF0F5', animationDelay: '0.6s', animationFillMode: 'forwards' }} onMouseEnter={(e) => { e.target.style.borderColor = '#EC4899'; }} onMouseLeave={(e) => { e.target.style.borderColor = '#FFF0F5'; }}>
               
               <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 group-hover:scale-105 transition-all duration-300 shadow-md">
-                <img src="/src/Assets/images/chooses.jpeg" alt="Compassionate Care" className="w-full h-full object-cover" />
+                <img src="/Assets/images/chooses.jpeg" alt="Compassionate Care" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-xl font-bold mb-4 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
                 Compassionate Care
@@ -150,7 +150,7 @@ function Homepage() {
             <div className="group text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 border transform hover:-translate-y-2 opacity-0 translate-y-8 animate-fade-in-up" style={{ borderColor: '#FFFBEB', animationDelay: '1.0s', animationFillMode: 'forwards' }} onMouseEnter={(e) => { e.target.style.borderColor = '#F59E0B'; }} onMouseLeave={(e) => { e.target.style.borderColor = '#FFFBEB'; }}>
               
               <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 group-hover:scale-105 transition-all duration-300 shadow-md">
-                <img src="/src/Assets/images/chooses.jpeg" alt="Professional Excellence" className="w-full h-full object-cover" />
+                <img src="/Assets/images/chooses.jpeg" alt="Professional Excellence" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-xl font-bold mb-4 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
                 Professional Excellence
@@ -164,7 +164,7 @@ function Homepage() {
             <div className="group text-center p-6 bg-white rounded-2xl shadow-md hover:shadow-lg transition-all duration-500 border transform hover:-translate-y-2 opacity-0 translate-y-8 animate-fade-in-up" style={{ borderColor: '#F0FDF4', animationDelay: '1.4s', animationFillMode: 'forwards' }} onMouseEnter={(e) => { e.target.style.borderColor = '#22C55E'; }} onMouseLeave={(e) => { e.target.style.borderColor = '#F0FDF4'; }}>
               
               <div className="w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 group-hover:scale-105 transition-all duration-300 shadow-md">
-                <img src="/src/Assets/images/chooses.jpeg" alt="Community Support" className="w-full h-full object-cover" />
+                <img src="/Assets/images/chooses.jpeg" alt="Community Support" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-xl font-bold mb-4 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
                 Community Support
@@ -254,7 +254,7 @@ function Homepage() {
           muted 
           playsInline
         >
-          <source src="/src/Assets/exam.mp4" type="video/mp4" />
+          <source src="/Assets/exam.mp4" type="video/mp4" />
         </video>
         
         {/* Overlay for better text readability */}
