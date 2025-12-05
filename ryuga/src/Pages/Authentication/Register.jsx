@@ -7,20 +7,15 @@ const Register = () => {
     lastName: '',
     email: '',
     phone: '',
-    password: '',
-    confirmPassword: '',
     dateOfBirth: '',
     address: '',
     emergencyContact: '',
     courseInterest: '',
-    experience: '',
-    agreeTerms: false,
-    agreeUpdates: false
+    experience: ''
   });
 
   const [errors, setErrors] = useState({});
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  // Removed password visibility states
 
   const courseOptions = [
     'Basic Caregiving Certificate',
@@ -60,17 +55,8 @@ const Register = () => {
       newErrors.email = 'Email is invalid';
     }
     if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
-    if (!formData.password) {
-      newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
-      newErrors.password = 'Password must be at least 6 characters';
-    }
-    if (formData.password !== formData.confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
-    }
     if (!formData.dateOfBirth) newErrors.dateOfBirth = 'Date of birth is required';
     if (!formData.courseInterest) newErrors.courseInterest = 'Please select a course interest';
-    if (!formData.agreeTerms) newErrors.agreeTerms = 'You must agree to the terms and conditions';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -79,9 +65,24 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      console.log('Registration data:', formData);
-      // Handle registration logic here
-      alert('Registration successful! Welcome to RYUGA Caregiving Institute.');
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzd3cdPva7rZXaAnakUEPaDMtVz5qS37RjzR5kPLcosA8tpA9MaefTXNDBVIuf2mSpD/exec';
+      const formElement = e.target;
+      // Create FormData from formData state
+      const data = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        data.append(key, value);
+      });
+      fetch(scriptURL, { method: 'POST', body: data })
+        .then(response => {
+          alert('Registration successful! Welcome to RYUGA Caregiving Institute.');
+          setFormData({
+            firstName: '', lastName: '', email: '', phone: '', dateOfBirth: '', address: '', emergencyContact: '', courseInterest: '', experience: ''
+          });
+        })
+        .catch(error => {
+          alert('Error! Please try again.');
+          console.error('Error!', error.message);
+        });
     }
   };
 
@@ -288,100 +289,7 @@ const Register = () => {
               </div>
             </div>
 
-            {/* Account Security Section */}
-            <div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center" style={{ fontFamily: 'Abhaya Libre, serif' }}>
-                <span className="text-blue-600 text-2xl mr-3">🔒</span>
-                Account Security
-              </h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                {/* Password */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
-                    Password *
-                  </label>
-                  <div className="relative">
-                    <input
-                      type={showPassword ? "text" : "password"}
-                      name="password"
-                      value={formData.password}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 pr-12 rounded-xl border-2 transition-all duration-300 focus:outline-none ${
-                        errors.password ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-blue-500'
-                      }`}
-                      style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
-                      placeholder="Create a password"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-3 text-gray-500 hover:text-gray-700"
-                    >
-                      {showPassword ? '👁️' : '👁️‍🗨️'}
-                    </button>
-                  </div>
-                  {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
-                </div>
-
-                {/* Confirm Password */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
-                    Confirm Password *
-                  </label>
-                  <div className="relative">
-                    <input
-                      type={showConfirmPassword ? "text" : "password"}
-                      name="confirmPassword"
-                      value={formData.confirmPassword}
-                      onChange={handleInputChange}
-                      className={`w-full px-4 py-3 pr-12 rounded-xl border-2 transition-all duration-300 focus:outline-none ${
-                        errors.confirmPassword ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-blue-500'
-                      }`}
-                      style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
-                      placeholder="Confirm your password"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className="absolute right-3 top-3 text-gray-500 hover:text-gray-700"
-                    >
-                      {showConfirmPassword ? '👁️' : '👁️‍🗨️'}
-                    </button>
-                  </div>
-                  {errors.confirmPassword && <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>}
-                </div>
-              </div>
-            </div>
-
-            {/* Terms and Conditions */}
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <input
-                  type="checkbox"
-                  name="agreeTerms"
-                  checked={formData.agreeTerms}
-                  onChange={handleInputChange}
-                  className="mt-1 w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                />
-                <label className="text-sm text-gray-700" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
-                  I agree to the <Link to="/terms" className="text-blue-600 hover:underline font-medium">Terms and Conditions</Link> and <Link to="/privacy" className="text-blue-600 hover:underline font-medium">Privacy Policy</Link> *
-                </label>
-              </div>
-              {errors.agreeTerms && <p className="text-red-500 text-sm">{errors.agreeTerms}</p>}
-
-              <div className="flex items-start space-x-3">
-                <input
-                  type="checkbox"
-                  name="agreeUpdates"
-                  checked={formData.agreeUpdates}
-                  onChange={handleInputChange}
-                  className="mt-1 w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                />
-                <label className="text-sm text-gray-700" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
-                  I would like to receive updates about courses, events, and news from RYUGA Caregiving Institute
-                </label>
-              </div>
-            </div>
+            {/* Removed Account Security and Terms/Updates sections */}
 
             {/* Submit Button */}
             <div className="flex flex-col sm:flex-row gap-4 pt-6">
@@ -390,15 +298,9 @@ const Register = () => {
                 className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                 style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
               >
-                Create Account
+                Register
               </button>
-              <Link
-                to="/login"
-                className="flex-1 text-center border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300"
-                style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
-              >
-                Already have an account?
-              </Link>
+              
             </div>
           </form>
         </div>
