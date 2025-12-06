@@ -1,4 +1,6 @@
  import React, { useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Contact() {
 
@@ -12,10 +14,20 @@ export default function Contact() {
 
     try {
       await fetch(scriptURL, { method: "POST", body: new FormData(form) });
-      alert("Success! Your message has been sent.");
+      toast.success('Success! Your message has been sent.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
       form.reset();
     } catch (error) {
-      alert("Error! Please try again.");
+      toast.error('Error! Please try again.', {
+        position: "top-right",
+        autoClose: 3000,
+      });
       console.error("Error!", error.message);
     }
   };
@@ -35,28 +47,19 @@ export default function Contact() {
           <source src="/Assets/exam.mp4" type="video/mp4" />
         </video>
 
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        {/* Colorful gradient overlay for richer UI */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-800/60 via-purple-700/50 to-indigo-900/60 z-10"></div>
 
-        <div className="text-center px-4 relative z-20">
+        <div className="text-center px-4 relative z-20 max-w-6xl mx-auto">
           <h1
-            className="text-6xl md:text-8xl font-bold text-white drop-shadow-lg animate-fade-in-up"
-            style={{ fontFamily: "Abhaya Libre, serif" }}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-2xl mb-4"
+            style={{ fontFamily: "Abhaya Libre, serif", letterSpacing: '-0.5px' }}
           >
-            Contact{" "}
-            <span className="relative" style={{ color: "#5BA7D1" }}>
-              RYUGA
-              <div
-                className="absolute -bottom-2 left-0 w-full h-1 rounded-full animate-slide-in"
-                style={{
-                  background: "linear-gradient(to right, #5BA7D1, #A8DFC7)",
-                }}
-              ></div>
-            </span>
+            Contact <span style={{ color: "#A8DFC7" }}>RYUGA</span>
           </h1>
 
           <p
-            className="text-xl md:text-2xl mb-10 max-w-4xl mx-auto text-white/90 leading-relaxed drop-shadow-md animate-fade-in-up"
+            className="text-base md:text-lg lg:text-xl max-w-4xl mx-auto text-white/95 leading-relaxed drop-shadow-sm font-medium"
             style={{ fontFamily: "Noto Sans Sinhala, sans-serif" }}
           >
             Get in touch with us for professional nursing and caregiving education
@@ -92,10 +95,10 @@ export default function Contact() {
             {/* LEFT INFO BOXES */}
             <div className="space-y-8">
               {/* ADDRESS BOX */}
-              <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border">
+              <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border border-transparent hover:border-blue-100 transition">
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: "#5BA7D1" }}
+                  style={{ background: 'linear-gradient(135deg,#5BA7D1,#A8DFC7)' }}
                 >
                   <svg
                     className="w-6 h-6 text-white"
@@ -133,10 +136,10 @@ export default function Contact() {
               </div>
 
               {/* PHONE BOX */}
-              <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border">
+              <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border border-transparent hover:border-emerald-100 transition">
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: "#A8DFC7" }}
+                  style={{ background: 'linear-gradient(135deg,#A8DFC7,#5BA7D1)' }}
                 >
                   <svg
                     className="w-6 h-6 text-white"
@@ -168,10 +171,10 @@ export default function Contact() {
               </div>
 
               {/* EMAIL BOX */}
-              <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border">
+              <div className="flex items-start gap-4 p-6 bg-white rounded-2xl shadow-lg border border-transparent hover:border-indigo-100 transition">
                 <div
                   className="w-12 h-12 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: "#5BA7D1" }}
+                  style={{ background: 'linear-gradient(135deg,#5BA7D1,#7BD3E6)' }}
                 >
                   <svg
                     className="w-6 h-6 text-white"
@@ -205,7 +208,7 @@ export default function Contact() {
             {/* RIGHT SIDE FORM */}
             <div
               className="bg-white rounded-3xl p-8 shadow-2xl border"
-              style={{ borderColor: "#E3F2F9" }}
+              style={{ borderColor: "#EEF6F9" }}
             >
               <h3
                 className="text-3xl font-bold mb-8 text-center"
@@ -222,14 +225,14 @@ export default function Contact() {
                     type="text"
                     placeholder="First Name"
                     required
-                    className="px-4 py-3 w-full border rounded-lg"
+                    className="px-4 py-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-100"
                   />
                   <input
                     name="lastName"
                     type="text"
                     placeholder="Last Name"
                     required
-                    className="px-4 py-3 w-full border rounded-lg"
+                    className="px-4 py-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-100"
                   />
                 </div>
 
@@ -239,7 +242,7 @@ export default function Contact() {
                   type="email"
                   placeholder="Email Address"
                   required
-                  className="px-4 py-3 w-full border rounded-lg"
+                  className="px-4 py-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-100"
                 />
 
                 {/* PHONE */}
@@ -247,13 +250,13 @@ export default function Contact() {
                   name="phone"
                   type="text"
                   placeholder="Phone Number"
-                  className="px-4 py-3 w-full border rounded-lg"
+                  className="px-4 py-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-100"
                 />
 
                 {/* COURSE SELECT */}
                 <select
                   name="course"
-                  className="px-4 py-3 w-full border rounded-lg"
+                  className="px-4 py-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-100"
                 >
                   <option value="">Select a Course</option>
                   <option value="nursing">Professional Nursing Course</option>
@@ -267,13 +270,13 @@ export default function Contact() {
                   name="message"
                   placeholder="Your message..."
                   rows="4"
-                  className="px-4 py-3 w-full border rounded-lg"
+                  className="px-4 py-3 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-100"
                 ></textarea>
 
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-lg text-white font-semibold"
-                  style={{ backgroundColor: "#5BA7D1" }}
+                  className="w-full py-3 rounded-lg text-white font-semibold shadow-md hover:shadow-lg transition"
+                  style={{ background: 'linear-gradient(90deg,#5BA7D1,#A8DFC7)' }}
                 >
                   Send Message
                 </button>
@@ -282,6 +285,7 @@ export default function Contact() {
           </div>
         </div>
       </section>
+      <ToastContainer />
     </div>
   );
 }

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import choosesImg from '../Assets/images/chooses.jpeg';
 
 const Services = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 60 },
@@ -71,30 +74,29 @@ const Services = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="relative pt-20 pb-16 md:pt-32 md:pb-24 min-h-[70vh] flex items-center justify-center overflow-hidden"
+        className="pt-20 min-h-screen flex items-center justify-center relative overflow-hidden"
       >
         {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover opacity-15"
-          >
-            <source src="/Assets/Vedio/hero-video.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/10 to-indigo-500/20"></div>
-        </div>
+        <video 
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source src="/Assets/Vedio/course.mp4" type="video/mp4" />
+        </video>
+        
+        <div className="absolute inset-0 bg-black/40 z-10"></div>
 
-        <div className="max-w-7xl mx-auto px-4 md:px-6 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 text-center relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mb-6 md:mb-8"
           >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-4 md:mb-6" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 text-white drop-shadow-2xl" style={{ fontFamily: 'Abhaya Libre, serif' }}>
               Our <span style={{ color: '#5BA7D1' }}>Caregiving</span> Courses
             </h1>
             <div className="w-24 md:w-32 h-1 mx-auto rounded-full" style={{ backgroundColor: '#5BA7D1' }}></div>
@@ -104,8 +106,8 @@ const Services = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-xl md:text-2xl lg:text-3xl max-w-4xl mx-auto leading-relaxed px-4 font-medium" 
-            style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: '#34495E' }}
+            className="text-lg md:text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed px-4 font-medium text-white/95 drop-shadow-md" 
+            style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
           >
             Professional caregiving education designed to equip you with the skills, knowledge, and compassion needed for a rewarding healthcare career
           </motion.p>
@@ -216,7 +218,151 @@ const Services = () => {
           </div>
         </div>
       </motion.section>
+{/* Student Success Stories Section - Dark Background */}
+      <section className="py-24 md:py-32 relative overflow-hidden" style={{ backgroundColor: '#111827' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-20"
+          >
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white" style={{ fontFamily: 'Abhaya Libre, serif' }}>
+              Student <span style={{ color: '#5BA7D1' }}>Success Stories</span>
+            </h2>
+            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
+              Hear from our graduates who are making a difference
+            </p>
+          </motion.div>
 
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
+            {[
+              { name: "Priyanka Silva", role: "Professional Caregiver - Japan", text: "RYUGA's training gave me the confidence and skills to secure a caregiver position in Japan. Life-changing experience!", rating: 5 },
+              { name: "Chandana Perera", role: "Home Healthcare Nurse", text: "The instructors were amazing! I now run my own home healthcare service thanks to this training.", rating: 5 },
+              { name: "Nimal Fernando", role: "Elder Care Specialist", text: "Best decision of my career. The practical training prepared me for real-world challenges perfectly.", rating: 5 },
+              { name: "Sanduni Jayawardena", role: "Palliative Care Nurse", text: "Learned not just skills, but compassion and empathy. RYUGA changed my life and career.", rating: 5 },
+              { name: "Kasun Wickramasinghe", role: "Disability Care Provider", text: "Comprehensive training with excellent instructors. Now working in a reputed care facility.", rating: 5 },
+              { name: "Dilini Rathnayake", role: "Pediatric Care Specialist", text: "The course exceeded my expectations. Highly recommend to anyone interested in caregiving.", rating: 5 },
+              { name: "Rukshan Bandara", role: "Medical Assistant - UAE", text: "RYUGA opened doors internationally for me. Professional training with global recognition.", rating: 5 },
+              { name: "Malini Dissanayake", role: "Senior Care Coordinator", text: "Grateful for the knowledge and skills gained. Best caregiving institute in Sri Lanka!", rating: 5 }
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                whileHover={{ y: -10 }}
+                className="bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/10"
+              >
+                <div className="flex flex-col h-full">
+                  <div className="p-6 flex-1">
+                    <div className="flex mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <span key={i} className="text-yellow-400 text-xl">⭐</span>
+                      ))}
+                    </div>
+                    <p className="text-white/90 leading-relaxed mb-6 italic text-base">
+                      "{testimonial.text}"
+                    </p>
+                  </div>
+                  <div className="bg-white/10 p-6 flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg ring-2 ring-white/20 flex-shrink-0">
+                      <img src={choosesImg} alt={testimonial.name} className="w-full h-full object-cover" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-white text-lg" style={{ fontFamily: 'Abhaya Libre, serif' }}>
+                        {testimonial.name}
+                      </p>
+                      <p className="text-blue-300 text-sm font-semibold" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
+                        {testimonial.role}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+      
+      
+
+      {/* Professional Case Studies Section - Light Background */}
+      <section className="py-24 md:py-32 relative overflow-hidden" style={{ backgroundColor: '#EAF6FB' }}>
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <h2 className="text-5xl md:text-6xl font-bold mb-4" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
+              Professional <span style={{ color: '#5BA7D1' }}>Case Studies</span>
+            </h2>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif', color: '#34495E' }}>
+              Discover how our healthcare solutions transform operations
+            </p>
+          </motion.div>
+
+          <div className="relative max-w-5xl mx-auto">
+            <div className="overflow-hidden rounded-3xl shadow-2xl">
+              <motion.div 
+                animate={{ x: `-${currentSlide * 100}%` }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                className="flex"
+              >
+                {[
+                  { title: "RYUGA Healthcare Solutions", subtitle: "Since 2021", desc: "See how RYUGA's Healthcare Management System transformed Sri Lanka's medical operations, automating patient processes.", color: "linear-gradient(135deg, #5BA7D1, #A8DFC7)" },
+                  { title: "Digital Nursing (Pvt) Ltd", subtitle: "Since 2020", desc: "Discover how our Digital Care Management System digitized nursing operations, enhancing efficiency across facilities.", color: "linear-gradient(135deg, #A8DFC7, #5BA7D1)" },
+                  { title: "MediCare Plus (Pvt) Ltd", subtitle: "Since 2019", desc: "Learn how RYUGA's Comprehensive Care System helped achieve faster treatment approvals and enhanced efficiency.", color: "linear-gradient(135deg, #2C3E50, #5BA7D1)" }
+                ].map((study, index) => (
+                  <div key={index} className="min-w-full">
+                    <div className="bg-white rounded-3xl p-12">
+                      <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div className="aspect-square rounded-2xl overflow-hidden shadow-xl" style={{ background: study.color }}>
+                          <div className="h-full flex items-center justify-center p-8">
+                            <img src={choosesImg} alt={study.title} className="w-full h-full object-cover rounded-xl shadow-2xl" />
+                          </div>
+                        </div>
+                        <div className="space-y-6">
+                          <div>
+                            <h3 className="text-4xl font-bold mb-2" style={{ fontFamily: 'Abhaya Libre, serif', color: '#2C3E50' }}>
+                              {study.title}
+                            </h3>
+                            <p className="text-gray-500 text-lg">{study.subtitle}</p>
+                          </div>
+                          <p className="text-xl leading-relaxed text-gray-700" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
+                            {study.desc}
+                          </p>
+                          <button className="px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 hover:shadow-xl" style={{ backgroundColor: '#5BA7D1', color: 'white' }}>
+                            Read More →
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+            
+            <div className="flex justify-center space-x-3 mt-8">
+              {[0, 1, 2].map((index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`w-4 h-4 rounded-full transition-all duration-300 ${currentSlide === index ? 'w-12 bg-blue-600' : 'bg-blue-300'}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Training Facilities */}
       <motion.section 
         initial={{ opacity: 0 }}

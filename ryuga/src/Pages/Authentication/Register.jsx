@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -74,13 +76,23 @@ const Register = () => {
       });
       fetch(scriptURL, { method: 'POST', body: data })
         .then(response => {
-          alert('Registration successful! Welcome to RYUGA Caregiving Institute.');
+          toast.success('Registration successful! Welcome to RYUGA Caregiving Institute.', {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
           setFormData({
             firstName: '', lastName: '', email: '', phone: '', dateOfBirth: '', address: '', emergencyContact: '', courseInterest: '', experience: ''
           });
         })
         .catch(error => {
-          alert('Error! Please try again.');
+          toast.error('Error! Please try again.', {
+            position: "top-right",
+            autoClose: 3000,
+          });
           console.error('Error!', error.message);
         });
     }
@@ -105,15 +117,10 @@ const Register = () => {
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="mb-6 flex justify-center">
-            <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl">
-              <span className="text-white text-3xl">📝</span>
-            </div>
-          </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent" style={{ fontFamily: 'Abhaya Libre, serif' }}>
-            Join RYUGA
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white drop-shadow-2xl" style={{ fontFamily: 'Abhaya Libre, serif' }}>
+            Join <span style={{ color: '#5BA7D1' }}>RYUGA</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
+          <p className="text-lg md:text-xl lg:text-2xl text-white/95 max-w-2xl mx-auto drop-shadow-md" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
             Start your journey in professional caregiving education
           </p>
         </div>
@@ -321,11 +328,12 @@ const Register = () => {
 
         {/* Footer Note */}
         <div className="text-center mt-8">
-          <p className="text-gray-600" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
-            Need help? <Link to="/contact" className="text-blue-600 hover:underline font-medium">Contact our support team</Link>
+          <p className="text-white/80" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
+            Need help? <Link to="/contact" className="text-blue-300 hover:underline font-medium">Contact our support team</Link>
           </p>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

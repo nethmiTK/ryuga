@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Footer from '../Components/Footer';
 import exam2 from '../Assets/images/exam2.jpg';
+import examVideo from '../Assets/exam.mp4';
 
 function WhoWeAre() {
   // Animation variants
@@ -125,83 +126,62 @@ function WhoWeAre() {
     }
   ];
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-100">
+    <div className="min-h-screen" style={{ backgroundColor: '#EAF6FB' }}>
       {/* Video Hero Section */}
-      <section className="relative pt-20 min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="pt-20 min-h-screen flex items-center justify-center relative overflow-hidden">
         {/* Video Background */}
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover opacity-20"
-          >
-            <source src="/Assets/Vedio/hero-video.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/60 via-purple-900/50 to-indigo-900/60"></div>
-        </div>
-
-        {/* Background decoration */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-10 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
-          <div className="absolute top-40 right-10 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
-          <div className="absolute bottom-20 left-1/3 w-64 h-64 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-pulse"></div>
-        </div>
+        <video 
+          className="absolute inset-0 w-full h-full object-cover z-0"
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+        >
+          <source src={examVideo} type="video/mp4" />
+        </video>
+        
+        <div className="absolute inset-0 bg-black/40 z-10"></div>
         
         <motion.div 
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="relative z-10 text-center px-4 max-w-6xl mx-auto"
+          className="relative z-20 text-center px-4 max-w-6xl mx-auto"
         >
-          {/* Floating heart icon */}
-          <motion.div 
-            variants={scaleIn}
-            transition={{ duration: 0.6 }}
-            className="mb-8 flex justify-center"
-          >
-            <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-xl animate-bounce">
-              <span className="text-white text-3xl">💝</span>
-            </div>
-          </motion.div>
-          
           <motion.h1 
             variants={fadeInUp}
             transition={{ duration: 0.8 }}
-            className="text-7xl md:text-9xl font-extrabold mb-10 bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent drop-shadow-2xl" 
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-white drop-shadow-2xl" 
             style={{ fontFamily: 'Abhaya Libre, serif' }}
           >
-            Who <span className="text-white">We Are</span>
+            Who We <span style={{ color: '#5BA7D1' }}>Are</span>
           </motion.h1>
           
-          <motion.div 
+          <motion.p 
             variants={fadeInUp}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white/80 backdrop-blur-md rounded-3xl p-8 mb-12 shadow-2xl"
+            className="text-lg md:text-xl lg:text-2xl mb-10 max-w-4xl mx-auto text-white/95 leading-relaxed drop-shadow-md px-4 font-medium"
+            style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
           >
-            <p className="text-2xl md:text-3xl text-gray-800 leading-relaxed font-medium" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
-              We are a dedicated 
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-bold"> caregiving education institute </span>
-              committed to empowering individuals with the 
-              <span className="text-blue-600 font-semibold"> skills</span>, 
-              <span className="text-pink-600 font-semibold"> compassion</span>, and 
-              <span className="text-purple-600 font-semibold"> confidence</span> needed to provide high-quality care.
-            </p>
-          </motion.div>
+            We are a dedicated caregiving education institute committed to empowering individuals with the skills, compassion, and confidence needed to provide high-quality care.
+          </motion.p>
           
           <motion.div 
             variants={fadeInUp}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
           >
-            <button className="group relative bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-12 py-5 rounded-full text-xl font-bold transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:scale-110 overflow-hidden" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
-              <span className="relative z-10">Join Our Courses</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            <button 
+              className="text-white px-10 md:px-12 py-4 md:py-5 rounded-full text-lg md:text-xl font-bold transition-all duration-300 shadow-2xl hover:shadow-3xl transform hover:scale-105" 
+              style={{ backgroundColor: '#5BA7D1', fontFamily: 'Noto Sans Sinhala, sans-serif' }}
+            >
+              Join Our Courses
             </button>
-            <button className="group relative border-3 border-white text-white px-12 py-5 rounded-full text-xl font-bold hover:text-blue-600 transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:scale-110 overflow-hidden bg-white/20 backdrop-blur-sm" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
-              <span className="relative z-10">Learn More</span>
-              <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            <button 
+              className="border-2 border-white text-white px-10 md:px-12 py-4 md:py-5 rounded-full text-lg md:text-xl font-bold hover:bg-white hover:text-gray-800 transition-all duration-300 shadow-xl transform hover:scale-105" 
+              style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
+            >
+              Learn More
             </button>
           </motion.div>
         </motion.div>
@@ -238,7 +218,7 @@ function WhoWeAre() {
                 key={index}
                 variants={scaleIn}
                 transition={{ duration: 0.5 }}
-                className="group text-center p-8 bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-blue-300 transform hover:-translate-y-3"
+                className="group text-center p-8 bg-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-blue-300 transform hover:-translate-y-3"
               >
                 <div className={`w-24 h-24 bg-gradient-to-br ${cert.color} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                   <span className="text-white text-4xl">{cert.icon}</span>
@@ -284,7 +264,7 @@ function WhoWeAre() {
               className="group text-center p-8 bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-500 border border-blue-100 hover:border-blue-300 transform hover:-translate-y-2"
             >
               <div className="w-24 h-24 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-blue-600 text-4xl">🎯</span>
+                <img src="/src/Assets/images/feature-image-1.jpg" alt="Feature Image" className="w-full h-full object-cover rounded-full" />
               </div>
               <h3 className="text-2xl font-bold mb-6 text-gray-800 group-hover:text-blue-600 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif' }}>
                 Practical Training
@@ -301,7 +281,7 @@ function WhoWeAre() {
               className="group text-center p-8 bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-500 border border-blue-100 hover:border-blue-300 transform hover:-translate-y-2"
             >
               <div className="w-24 h-24 bg-gradient-to-br from-pink-100 to-pink-200 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-pink-600 text-4xl">💖</span>
+                <img src="/src/Assets/images/feature-image-2.jpg" alt="Feature Image" className="w-full h-full object-cover rounded-full" />
               </div>
               <h3 className="text-2xl font-bold mb-6 text-gray-800 group-hover:text-pink-600 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif' }}>
                 Compassionate Care
@@ -318,7 +298,7 @@ function WhoWeAre() {
               className="group text-center p-8 bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-500 border border-blue-100 hover:border-blue-300 transform hover:-translate-y-2"
             >
               <div className="w-24 h-24 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-green-600 text-4xl">🏆</span>
+                <img src="/src/Assets/images/feature-image-3.jpg" alt="Feature Image" className="w-full h-full object-cover rounded-full" />
               </div>
               <h3 className="text-2xl font-bold mb-6 text-gray-800 group-hover:text-green-600 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif' }}>
                 Professional Excellence
@@ -335,7 +315,7 @@ function WhoWeAre() {
               className="group text-center p-8 bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-500 border border-blue-100 hover:border-blue-300 transform hover:-translate-y-2"
             >
               <div className="w-24 h-24 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-300">
-                <span className="text-purple-600 text-4xl">🤝</span>
+                <img src="/src/Assets/images/feature-image-4.jpg" alt="Feature Image" className="w-full h-full object-cover rounded-full" />
               </div>
               <h3 className="text-2xl font-bold mb-6 text-gray-800 group-hover:text-purple-600 transition-colors duration-300" style={{ fontFamily: 'Abhaya Libre, serif' }}>
                 Community Support
@@ -413,109 +393,6 @@ function WhoWeAre() {
         </div>
       </section>
 
-      {/* Our Team Section */}
-      <section className="py-28 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-20"
-          >
-            <h2 className="text-5xl font-bold mb-6 text-gray-800" style={{ fontFamily: 'Abhaya Libre, serif' }}>
-              Meet Our <span className="text-blue-600">Expert Team</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
-              Dedicated professionals committed to excellence in caregiving education
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid md:grid-cols-2 lg:grid-cols-5 gap-8"
-          >
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                variants={scaleIn}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3"
-              >
-                <div className={`w-32 h-32 bg-gradient-to-br ${member.color} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
-                  <span className="text-white text-5xl">{member.image}</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-800 text-center" style={{ fontFamily: 'Abhaya Libre, serif' }}>
-                  {member.name}
-                </h3>
-                <p className="text-blue-600 font-semibold text-center mb-2" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
-                  {member.role}
-                </p>
-                <p className="text-gray-600 text-sm text-center" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
-                  {member.specialty}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Gallery Section */}
-      <section className="py-28 bg-white/80 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-20"
-          >
-            <h2 className="text-5xl font-bold mb-6 text-gray-800" style={{ fontFamily: 'Abhaya Libre, serif' }}>
-              Our <span className="text-blue-600">Activities Gallery</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
-              Glimpses of our training sessions, workshops, and community activities
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerContainer}
-            className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4"
-          >
-            {galleryImages.map((image, index) => (
-              <motion.div
-                key={image.id}
-                variants={scaleIn}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="group relative aspect-square overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 cursor-pointer"
-              >
-                <img
-                  src={exam2}
-                  alt={image.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                  <p className="text-white font-bold text-sm mb-1" style={{ fontFamily: 'Abhaya Libre, serif' }}>
-                    {image.title}
-                  </p>
-                  <p className="text-blue-300 text-xs font-semibold" style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}>
-                    {image.category}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* Call to Action Section */}
       <section className="py-28 bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-700 text-white relative overflow-hidden">
         <div className="absolute inset-0">
@@ -552,8 +429,7 @@ function WhoWeAre() {
         </motion.div>
       </section>
       
-      <Footer />
-    </div>
+     </div>
   );
 }
 
