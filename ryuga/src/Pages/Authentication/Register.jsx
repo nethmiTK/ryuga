@@ -87,8 +87,22 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-indigo-100 py-20">
-      <div className="max-w-4xl mx-auto px-6">
+    <div className="min-h-screen relative py-20">
+      {/* Video Background */}
+      <div className="fixed inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/Assets/Vedio/course.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-purple-900/60 to-indigo-900/70"></div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="mb-6 flex justify-center">

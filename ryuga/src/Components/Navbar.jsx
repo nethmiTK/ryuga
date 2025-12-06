@@ -10,9 +10,9 @@ const Navbar = () => {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/who-we-are', label: 'Who We Are' },
-    { href: '#services', label: 'Services' },
+    { href: '/services', label: 'Services' },
     { href: '/contact', label: 'Contact' },
-   ];
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,33 +56,18 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navLinks.map((link) => (
-                link.href.startsWith('#') ? (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                      scrolled
-                        ? 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
-                        : 'text-white hover:text-blue-200 hover:bg-white/10'
-                    }`}
-                    style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
-                  >
-                    {link.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={link.label}
-                    to={link.href}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                      scrolled
-                        ? 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
-                        : 'text-white hover:text-blue-200 hover:bg-white/10'
-                    }`}
-                    style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
-                  >
-                    {link.label}
-                  </Link>
-                )
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className={`px-4 py-2 rounded-md text-lg font-semibold transition-colors duration-200 ${
+                    scrolled
+                      ? 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                      : 'text-white hover:text-blue-200 hover:bg-white/10'
+                  }`}
+                  style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
+                >
+                  {link.label}
+                </Link>
               ))}
             </div>
           </div>
@@ -91,7 +76,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Link
               to="/register"
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`px-8 py-3 rounded-full text-lg font-semibold transition-all duration-200 ${
                 scrolled
                   ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-md'
                   : 'bg-white text-blue-600 hover:bg-blue-50 border border-white'
@@ -132,27 +117,15 @@ const Navbar = () => {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200 shadow-lg">
             {navLinks.map((link) => (
-              link.href.startsWith('#') ? (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
-                  style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ) : (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
-                  style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              )
+              <Link
+                key={link.label}
+                to={link.href}
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                style={{ fontFamily: 'Noto Sans Sinhala, sans-serif' }}
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
             ))}
             <Link
               to="/register"
